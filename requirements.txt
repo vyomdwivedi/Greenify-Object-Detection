@@ -1,0 +1,5 @@
+streamlit==1.31.1
+matplotlib==3.8.4
+torch==2.2.2
+torchvision==0.17.2
+numpy==1.26.4
