@@ -145,7 +145,7 @@ electronic = ['cell phone', 'laptop', 'tv', 'mouse', 'keyboard', 'remote', 'micr
 glass = ['wine glass', 'cup', 'bowl', 'fork', 'knife', 'spoon', 'bowl', 'cup', 'fork', 'knife', 'spoon']
 vegetable = ['broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'orange', 'apple', 'banana', 'sandwich', 'orange', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'orange', 'apple', 'banana', 'sandwich']
 plastic = ['bottle', 'cup', 'bowl', 'fork', 'knife', 'spoon', 'bowl', 'cup', 'fork', 'knife', 'spoon']
-inorganic = ['cell phone', 'laptop', 'tv', 'mouse', 'keyboard', 'remote', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
+inorganic = ['cell phone', 'laptop', 'tv', 'mouse', 'keyboard', 'remote', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
 
 if(any(item in names_list for item in glass or plastic)):
     st.markdown('')
