@@ -142,15 +142,14 @@ st.markdown('')
 st.sidebar.divider()
 
 electronic = ['cell phone', 'laptop', 'tv', 'mouse', 'keyboard', 'remote', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
-glass = ['wine glass', 'cup', 'bowl', 'fork', 'knife', 'spoon', 'bowl', 'cup', 'fork', 'knife', 'spoon']
 vegetable = ['broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'orange', 'apple', 'banana', 'sandwich', 'orange', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'orange', 'apple', 'banana', 'sandwich']
 plastic = ['bottle', 'cup', 'bowl', 'fork', 'knife', 'spoon', 'bowl', 'cup', 'fork', 'knife', 'spoon']
 inorganic = ['cell phone', 'laptop', 'tv', 'mouse', 'keyboard', 'remote', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
 
-if(any(item in names_list for item in glass or plastic)):
+if(any(item in names_list for item in plastic)):
     st.markdown('')
     st.markdown('##### Non-Biodegradable Waste')
-    st.write("Items like Glass, Plastic, etc. are classified as Non-Biodegradable Waste. They should be disposed of properly in blue dustbin.")
+    st.write("Items like Plastic bottles, spoons etc. are classified as Non-Biodegradable Waste. They should be disposed of properly in blue dustbin.")
 elif(any(item in names_list for item in vegetable)):
     st.markdown('')
     st.markdown('##### Biodegradable Waste')
