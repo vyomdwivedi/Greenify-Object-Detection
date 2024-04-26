@@ -151,11 +151,11 @@ if(any(item in names_list for item in glass or plastic)):
     st.markdown('')
     st.markdown('##### Non-Biodegradable Waste')
     st.write("Items like Glass, Plastic, etc. are classified as Non-Biodegradable Waste. They should be disposed of properly in blue dustbin.")
-if(any(item in names_list for item in vegetable)):
+elif(any(item in names_list for item in vegetable)):
     st.markdown('')
     st.markdown('##### Biodegradable Waste')
     st.write("Items like Vegetables, Fruits, etc. are classified as Biodegradable Waste. They should be disposed of properly in green dustbin.")
-if(any(item in names_list for item in electronic or inorganic)):
+elif(any(item in names_list for item in electronic or inorganic)):
     st.markdown('')
     st.markdown('##### Electronic or Inorganic Waste')
     st.write("Items like Electronic Gadgets, Books, etc. are classified as Electronic or Inorganic Waste. They should be disposed of properly in grey dustbin.")
