@@ -1,12 +1,13 @@
 import os
-import cv2
+import cv2 #pip install opencv-python
 from PIL import Image
-import pandas as pd
-import streamlit as st
-from ultralytics import YOLO
-from streamlit_image_comparison import image_comparison
+import pandas as pd #pip install pandas
+import streamlit as st #pip install streamlit
+from ultralytics import YOLO #pip install ultralytics
+from streamlit_image_comparison import image_comparison #pip install streamlit-image-comparison
 
 model = YOLO('yolov8n.pt')
+
 
 st.title("Image Segmentation with YOLOv8: A Web Integration for Object Detection")
 
@@ -167,3 +168,4 @@ st.markdown('')
 st.markdown('')
 st.sidebar.divider()
 st.sidebar.info("Made by VyomDwivedi")
+
