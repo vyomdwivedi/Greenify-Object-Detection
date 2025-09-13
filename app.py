@@ -9,6 +9,7 @@ from streamlit_image_comparison import image_comparison #pip install streamlit-i
 model = YOLO('yolov8n.pt')
 
 st.title("Greenify - Waste Segmentation App")
+st.info("Prototype App Link:- https://app.flutterflow.io/share/greenify-app-3fkpqk")
 
 def save_uploadedfile(uploadedfile):
     with open(os.path.join("./media-directory/", "bus.jpg"), "wb") as f:
