@@ -8,11 +8,10 @@ from streamlit_image_comparison import image_comparison #pip install streamlit-i
 
 model = YOLO('yolov8n.pt')
 
-
-st.title("Image Segmentation with YOLOv8: A Web Integration for Object Detection")
+st.title("Greenify - Waste Segmentation App")
 
 def save_uploadedfile(uploadedfile):
-    with open(os.path.join("./media-directory/", "selfie.jpg"), "wb") as f:
+    with open(os.path.join("./media-directory/", "bus.jpg"), "wb") as f:
         f.write(uploadedfile.getbuffer())
 
 def convert_to_jpg(uploaded_image):
@@ -40,10 +39,6 @@ APPLICATION_MODE = st.sidebar.selectbox("Our Options",
 if APPLICATION_MODE == "Take Picture":
     st.sidebar.write(
         """
-            A computer aided application that segments your input image, built on 
-            the powerful YOLOv8 object detection algorithm developed by *ultralytics*.
-
-            Simply take a selfie and it gets segmentated in real time.
         """
     )
     picture = st.camera_input("Take a picture")
@@ -55,18 +50,19 @@ if APPLICATION_MODE == "Take Picture":
             ## Function to save image
             save_uploadedfile(picture)
             st.sidebar.success("Saved File")
-            selfie_img = os.path.join(parent_media_path, "/selfie.jpg")
+            selfie_img = os.path.join(parent_media_path, "/bus.jpg")
         st.write("Click on **Clear photo** to retake picture")
-        img_file = './media-directory/selfie.jpg'
+        img_file = './media-directory/bus.jpg'
     st.divider()
 
 elif APPLICATION_MODE == "Upload Picture":
     st.sidebar.write(
         """
-            A computer aided application that segments your input image, built on 
-            the powerful YOLOv8 object detection algorithm developed by *ultralytics*.
-
-            Simply drop your image and it gets segmentated in real time.
+        Upload a .jpg or .png file (preferably with a clear background)
+        1. Click on **Browse files** to upload your image
+        2. Wait for the image to be processed
+        3. View the segmented items and their distribution in the sidebar
+        4. Dispose of waste responsibly based on the classification provided
         """
     )
     st.sidebar.divider()
@@ -135,30 +131,49 @@ else:
     st.sidebar.warning("Unable to id Distinct items - Please retry with a clearer Image")
 
 st.markdown('')
-st.markdown('')
-st.markdown('')
-st.markdown('')
-st.markdown('')
-st.markdown('')
 st.sidebar.divider()
 
-electronic = ['cell phone', 'laptop', 'tv', 'mouse', 'keyboard', 'remote', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
-vegetable = ['broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'orange', 'apple', 'banana', 'sandwich', 'orange', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'orange', 'apple', 'banana', 'sandwich']
-plastic = ['bottle', 'cup', 'bowl', 'fork', 'knife', 'spoon', 'bowl', 'cup', 'fork', 'knife', 'spoon']
-inorganic = ['cell phone', 'laptop', 'tv', 'mouse', 'keyboard', 'remote', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
+electronic = [
+    'cell phone', 'laptop', 'tv', 'mouse', 'keyboard', 'remote', 'microwave', 
+    'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'scissors', 
+    'teddy bear', 'hair drier', 'toothbrush',
+    'tablet', 'printer', 'camera', 'headphones', 'smartwatch', 'speaker', 
+    'game console', 'drone', 'charger', 'projector'
+]
+vegetable = [
+    'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'orange', 
+    'apple', 'banana', 'sandwich',
+    'cucumber', 'lettuce', 'potato', 'tomato', 'grapes', 'mango', 'watermelon', 
+    'pineapple', 'strawberry', 'pear'
+]
+plastic = [
+    'bottle', 'cup', 'bowl', 'fork', 'knife', 'spoon',
+    'straw', 'plastic bag', 'container', 'pen', 'comb', 'toothbrush cover', 
+    'food wrap', 'detergent bottle', 'plastic chair', 'plastic toy'
+]
+inorganic = [
+    'cell phone', 'laptop', 'tv', 'mouse', 'keyboard', 'remote', 'microwave', 
+    'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'scissors', 
+    'teddy bear', 'hair drier', 'toothbrush',
+    'glass bottle', 'aluminum can', 'ceramic plate', 'steel spoon', 'metal pipe', 
+    'tiles', 'light bulb', 'wire', 'mirror', 'battery'
+]
 
 if(any(item in names_list for item in plastic)):
     st.markdown('')
-    st.markdown('##### Non-Biodegradable Waste')
+    st.markdown('### Non-Biodegradable Waste')
     st.write("Items like Plastic bottles, spoons etc. are classified as Non-Biodegradable Waste. They should be disposed of properly in blue dustbin.")
+    st.info("♻️ **Eco Tip:** Rinse plastic containers before recycling. Avoid single-use plastics when possible. Reuse or repurpose plastic items, and participate in local recycling programs to ensure proper processing.")
 elif(any(item in names_list for item in vegetable)):
     st.markdown('')
-    st.markdown('##### Biodegradable Waste')
+    st.markdown('### Biodegradable Waste')
     st.write("Items like Vegetables, Fruits, etc. are classified as Biodegradable Waste. They should be disposed of properly in green dustbin.")
+    st.info("🌱 **Eco Tip:** Compost kitchen scraps and food waste to create natural fertilizer. Avoid mixing biodegradable waste with plastics or metals. Use compost bins or community composting facilities if available.")
 elif(any(item in names_list for item in electronic or inorganic)):
     st.markdown('')
-    st.markdown('##### Electronic or Inorganic Waste')
+    st.markdown('### Electronic or Inorganic Waste')
     st.write("Items like Electronic Gadgets, Books, etc. are classified as Electronic or Inorganic Waste. They should be disposed of properly in grey dustbin.")
+    st.info("🔋 **Eco Tip:** Never throw electronics or batteries in regular trash. Take e-waste to certified collection centers or recycling drives. Donate working electronics, and recycle metals and glass at appropriate facilities.")
 
 st.markdown('')
 st.markdown('')
